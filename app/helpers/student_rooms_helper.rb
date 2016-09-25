@@ -1,0 +1,2 @@
+module StudentRoomsHelper
+end

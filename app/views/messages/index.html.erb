@@ -1,0 +1,75 @@
+<% provide(:title, 'Conversation') %>
+
+<div class='row'>
+    <div class="col-md-6 col-md-offset-3">
+
+        <% if ((@conversation.sender_id == current_user.id ) || (@conversation.receiver_id == current_user.id )) %>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="messages" style="height:55vh; overflow:auto; padding-right: 10px">
+                        <% @messages.each do |message| %>
+                            <% if message.body %>
+                                <% user = User.find(message.user_id) %>
+
+                                <% if user.id == current_user.id %>
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+
+                                            <div style="text-align: left">
+                                                <strong>Me</strong>
+                                                <span style="float:right">
+                                                <i><%= message.message_time %></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <%= message.body %>
+                                        </div>
+                                    </div>
+
+                                <% else %> 
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+
+                                            <div style="text-align: left">
+                                                <strong><%= user.name %></strong>
+                                                <span style="float:right">
+                                                <i><%= message.message_time %></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <%= message.body %>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                          
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <script>
+                        var msgDiv = document.getElementById("messages");
+                        msgDiv.scrollTop = msgDiv.scrollHeight;
+                    </script>
+                </div>                
+            </div>
+            <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+                            <div class="field">
+                                <%= f.text_area :body, class: "form-control" %>
+                            </div>
+                            <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+                            <%= f.text_field :read, value: false, type: "hidden"  %>
+                            <div>
+                                <%= f.submit "Reply !", class: "btn btn-primary" %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+        <% else %> 
+            <h4>You are not allowed to see others conversations !! They are private ! </h4>
+        <% end %>
+    </div>
+</div>

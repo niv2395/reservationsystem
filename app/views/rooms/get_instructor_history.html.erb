@@ -1,0 +1,27 @@
+<% provide(:title, @instructor.name + '\'s rooms') %>
+
+<h1>Listing <%="#{@instructor.name}'s"%> Rooms</h1>
+
+<table class="table">
+  <thead>
+    <th>Room</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @rooms.each do |room| %>
+    <% if  room !=nil %>
+      <tr>
+        <td><%= room.title %></td>
+        <td><%= room.description %></td>
+        <td><%= room.status %></td>
+        <td><%= link_to 'Show', room %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>

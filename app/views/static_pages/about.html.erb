@@ -1,0 +1,78 @@
+<% provide(:title, "About") %>
+
+<div class="center">
+	<!-- <h1>About</h1> -->
+	<h3>Preconfigured users</h3>
+
+	<div class="row">
+	  	<div class="col-md-6 col-md-offset-3">
+			<table class="table">
+				<thead>
+					<tr>
+						<td> <h4>Username</h4> </td>
+						<td> <h4>Password</h4> </td>
+						<td><h4>Notes</h4></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> admin@sp.com </td>
+						<td> password </td>
+						<td> Super admin</td>
+					</tr>
+					<tr>
+						<td> admin_@sp.com </td>
+						<td> password </td>
+						<td> Replace _ with a number. Range 1 to 5 </td>
+					</tr>
+					<tr>
+						<td> ins_@sp.com </td>
+						<td> password </td>
+						<td> Replace _ with a number. Range 1 to 30 </td>
+					</tr>
+					<tr>
+						<td> stu_@sp.com </td>
+						<td> password </td>
+						<td>Replace _ with a number. Range 1 to 300 </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div style="text-align: left;">
+	Some of the <b>username/password</b> combo <b>might not work</b>, since reviewers might have changed them while testing <br/>
+	<b>Profile viewing/editing</b>: Every logged in user has the ability to change his/her profile information. Upon login, their profile is displayed, where you will also find an 'Edit' option<br/>
+	
+	<b>Admin - View all rooms</b>: Under the 'Actions' dropdown, select 'View rooms'<br/>
+	<b>Admin - View (+edit/delete) a room details</b>: When in the 'View rooms', click on the 'room title' of a room to view its details. There are options to delete the room as well<br/>
+	<b>Admin - Delete a room</b>: When in the 'View rooms', click on the 'Delete room' option. However, if the room has students enrolled in it, then the deletion is not permitted.<br/>
+	<b>Admin - View all users</b>: Under the 'Actions' dropdown, select 'User List'. On the resulting page, the user has an option to filter out the user based on their user type, by clicking on the hyperlinks on the top of the page.<br/>
+	<b>Admin - View user history</b>: Click on 'View history' to see the corresponding user's history.<br/>
+	<b>Admin - View a user's profile</b>: When viewing all the users, click on the 'name' of the user whose profile you wish to view. <br/>
+	<b>Admin - Delete a user's profile</b>: When in a user's profile, click on the Delete User option below their profile. However, if the user happens to be an instructor who is currently taking a room, then the deletion will not be permitted.<br/>
+	<b>Admin - Create an admin</b>: Under the 'Actions' dropdown, select 'Add an admin' option.<br/>
+	<b>Admin - Create an instructor</b>: Under the 'Actions' dropdown, select 'Add an instructor' option.<br/>
+	<b>Admin - Create a student</b>: Under the 'Actions' dropdown, select 'Add a student' option.<br/>
+	<b>Admin - Create a room</b>: Under the 'Actions' dropdown, select 'Add a room' option.<br/>
+	<b>Admin - Post an announcement (Regarding deadlines or materials)</b>: Under the 'Actions' dropdown, select 'Post an announcement' option. Select the relevant room from the dropdown<br/>
+
+	<b>Admin - Enroll a student</b>: Go to the 'View rooms' page and open the room details page. In the room page, there are options to show the list of students with enrollment requests and already enrolled students. Click on the 'enrollment request' and select the students that need to be enrolled. There is an option to reject students as well.<br/>
+	<b>Admin - Post a grade</b>: Same as above, but instead of pending list, select the list of enrolled students. This will provide a list of students in the room. Click on the 'show' option against a student. You will see an option to post a grade.<br/>
+	<b>Admin - Drop a student</b>: In the above page, you will also see an option to drop a student.<br/><br/>
+
+	<b>Instructor - View rooms</b>: Under the 'Actions' dropdown, select 'My rooms' option. This will show the list of rooms that the instructor is taking or took in the past.<br/>
+	<b>Instructor - Post an announcement (Regarding deadlines or materials)</b>:Under the 'Actions' dropdown, select 'New announcement' option. The corresponding room for the announcement should be selected.<br/>
+	<b>instructor - Enroll a student</b>: When viewing the instructors <i>My rooms</i>, click on the 'show' option of a room. In the room page, there are options to show the list of students with pending enrollments and already enrolled students. Click on the pending list and select the students that need to be enrolled. There is an option to reject students as well. <br/>
+	<b>instructor - Post a grade</b>: Same as above, but instead of pending list, select the list of enrolled students. This will provide a list of students in the room. Click on the 'show' option against a student. You will see an option to post a grade.<br/>
+	<b>instructor - Drop a student</b>: In the above case, you will also see an option to drop a student.<br/><br/>
+
+	<b>Student - View room</b>: Under 'Actions', click on 'View rooms'. This will provide a list of rooms.<br/>
+	<b>Student - Room details</b>: When in 'View rooms', select the 'room title' of the room. This will lead to the room details page.<br/>
+	<b>Student - Request enrollemnt</b>: In the above page, click on 'Enroll me'. This send a request to the instructor to enrol the student.<br/>
+	<b>Student - Room history</b>: Under 'Actions', click "My rooms". This will provide a list of enrolled, pending and completed rooms. It can be filtered by clicking on the filter options above.<br/>
+	<b>Student - Drop a room</b>: In the room above list, click on 'view' to see the student's room page. Click on the drop room option to drop the room.
+	</div><br/>
+
+	<b>Bonus - Messages between student and instructors</b>: As a student, to start a new conversation with an instructor, go to the room details page. You will a "Send a message" link next to the instructors name. Once a conversation has begun, the conversation thread between the two will be listed under 'Messages' found in the navigation bar at the top. As an instructor, go to the page your room that lists the current enrolled students. In the list of students, click on the 'show' option. You will find a 'Send a message' against the students name. The thread will be found in the Messages menu item.
+</div>

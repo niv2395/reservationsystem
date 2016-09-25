@@ -1,0 +1,43 @@
+<% provide(:title, 'Enrollment approval') %>
+
+<h1>Students waiting for approval</h1>
+<%= form_tag( { :action => :complete, }, { :method => :put }) %>
+<table class="table">
+    <thead>
+        <th>Student</th>
+        <th>Room</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+        <% flag = false%>
+        <% @student_rooms.each do |student_room| %>
+            <% if  student_room !=nil %>
+                <% flag = true%>
+                <tr>
+                    <td><%= student_room.user.name %>
+                    <% if ((current_user.id!=student_room.user.id) && (current_user.utype=="instructor")) %>
+                        <i class="glyphicon glyphicon-envelope"> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, receiver_id: student_room.user.id), method: 'post'%></i>
+                        <%end %></td></td>
+                    <td><%= student_room.room.title %></td>
+                    <td><%= check_box_tag "student_room_ids[]", student_room.id %></td>
+                </tr>
+            <% end %>
+        <% end %>
+        </br></br></br>
+    </tbody>
+</table>
+
+<% if flag %>
+    <table class="table">
+        <tr>
+        <td><%= submit_tag "Enroll", name:'Enrollment', class:'btn-sm btn btn-primary'%></td>
+        <td><%= submit_tag "Reject", name:'Rejection', class:'btn-sm btn btn-danger'%></td>
+        </tr>
+    </table>
+<% end %>
+<%= form_tag %>
+
+
+
+

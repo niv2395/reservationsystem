@@ -1,0 +1,44 @@
+<% if (current_user.utype =="student" || current_user.utype=="instructor" ) %>
+<% provide(:title, current_user.name + '\'s rooms') %>
+
+<div>
+    <p>
+
+    </p>
+</div>
+
+<%= link_to "All", room_history_display_path%> |
+<%= link_to "Pending", room_history_display_path(subset:"pending") %> |
+<%= link_to "Enrolled", room_history_display_path(subset:"enrolled") %> |
+<%= link_to "Completed", room_history_display_path(subset:"completed") %>
+
+<h1>Listing Your Rooms</h1>
+
+<table class="table">
+  <thead>
+    <th>Room</th>
+    <th>Grade</th>
+    <th>Status</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @student_rooms.each do |student_room| %>
+    <% if  student_room !=nil %>
+      <tr>
+        <td><%= student_room.room.title %></td>
+        <td><%= student_room.grade %></td>
+        <td><%= student_room.status %></td>
+        <td><%= link_to 'view', student_room %> </td>
+      </tr>
+    <% else %>
+     
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<% else %>
+ <% controller.redirect_to roomsall_path %>
+<%end %>

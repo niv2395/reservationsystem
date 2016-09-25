@@ -1,0 +1,46 @@
+<% provide(:title, @user.name + '\'s profile') %>
+
+<div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+		  		<% if @user.email == current_user.email%>
+		  			<h3 style="display:inline-block;"> Your profile</h3> 
+
+	                <%= link_to edit_user_path(current_user) do %>
+	                	Edit <i class="glyphicon glyphicon-pencil"></i>
+	                <% end %>
+				<% elsif current_user.utype == "admin" && current_user.email != @user.email %>
+					<h3 style="display:inline-block;"> <%= @user.name %>'s profile </h3>
+					<%= link_to @user, method: :delete, data: {confirm: 'Are you sure?'} do %>
+		              	Delete <i class="glyphicon glyphicon-remove" style="display:inline-block;"></i>
+		            <% end %>        
+		  		<% else %>
+		  			<h3 style="display:inline-block;"> <%= @user.name %>'s profile </h3>
+		  		<% end %>
+				<table class="table">
+					<tr>
+						<td>Name</td>
+						<td><%= @user.name %></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><%= @user.email %></td>
+					</tr>
+					<tr>
+						<td>Phone number</td>
+						<td><%= @user.ph_number %></td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td><%= @user.address %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<br/>
+
+		
+	</div>
+</div>

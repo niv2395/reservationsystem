@@ -1,0 +1,33 @@
+<% provide(:title, 'Enrolled students') %>
+<h1>Listing Enrolled students</h1>
+
+<div class="container" style="height:70vh; overflow:auto">
+
+    <table class="table">
+        <thead>
+            <th>Student</th>
+            <!--<th>Grade</th>-->
+            <th>Status</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <% @student_rooms.each do |student_room| %>
+                <% if  student_room !=nil %>
+                    <tr>
+                        <td>
+                            <%= student_room.user.name %> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <% if ((current_user.id!=student_room.user.id) && (current_user.utype=="instructor")) %>
+                                <%= link_to conversations_path(sender_id: current_user.id, receiver_id: student_room.user.id), method: 'post' do %>
+                                    <i class="glyphicon glyphicon-envelope" style="display:inline-block;"></i> Send a message 
+                                <% end %>    
+                            <%end %>                            
+                        </td>
+                        <!--<td><%= student_room.grade %></td>-->
+                        <td><%= student_room.status %></td>
+                        <td><%= link_to 'Show', student_room %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</div>

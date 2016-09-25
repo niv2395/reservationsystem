@@ -1,0 +1,63 @@
+<% provide(:title, 'Room list') %>
+
+<h1>Search for room</h1>
+
+<div class="row">
+    <%= form_tag(roomsall_path, :method => "get", id: "search-form") do %>
+    <div class="col-xs-6">
+        <%= text_field_tag :search, params[:search], placeholder: "Search Rooms", class:'form-control' %>
+    </div>
+    <div class="col-xs-3">
+        <select id="searchby" name="searchby" class="form-control">
+            <option selected disabled hidden>Select field to search by</option>
+            <option>ID</option>
+            <option>Title</option>
+            <option>Description</option>
+            <option>Instructor</option>
+            <option>Status</option>
+        </select>
+    </div>
+    <div class="col-xs-3">
+        <%= submit_tag "Search", class:'form-control btn btn-primary' %>
+    </div>
+    <% end %>
+</div>
+
+<br/>
+<br/>
+
+<h1>Listing All Rooms</h1>
+
+<div class="container" style="height:45vh; overflow:auto">
+<table class="table table-hover">
+    <thead>
+        <th>Room ID</th>
+        <th>Room Title</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Intructor</th>
+        <th>Status</th>
+        <th></th>
+    </thead>
+    <tbody>
+    <% @rooms.each do |room| %>
+        <tr>
+            <td><%= room.id%></td>
+            <td><%= link_to room.title, room %></td>
+            <td><%= room.description %></td>
+            <td><%= room.start_date %></td>
+            <td><%= room.end_date %></td>
+            <td><%= room.user.name%></td>
+            <td><%= room.status%></td>
+            <!-- <td><%= link_to 'Show', room %></td> -->
+            <% if ( current_user.utype =="admin")%>
+                <td><%= link_to 'Delete room', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+        </tr>
+
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
