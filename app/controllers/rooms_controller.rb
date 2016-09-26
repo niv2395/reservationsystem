@@ -111,7 +111,7 @@ class RoomsController < ApplicationController
             respond_to do |format| 
                 if @student_room.save
                     format.html { redirect_to room_history_display_url}
-                    flash[:success] = "A request has been sent to instructor to add you to the room."
+                    flash[:success] = "A request has been sent to admin to add you to the room."
                     format.json { render :show, status: :created, location: @student_room }
                 else
                     format.html { render :index}
