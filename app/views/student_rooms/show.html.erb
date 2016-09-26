@@ -18,7 +18,7 @@
                         <td><%= @student_room.room.title %></td>
                     </tr>
                     <tr>
-                        <td>Room instructor</td>
+                        <td>Room size</td>
                         <td><%= @student_room.room.user.name %> &nbsp;&nbsp;&nbsp;&nbsp;
                         <% if ((current_user.utype=="student")) %>
                             <%= link_to conversations_path(sender_id: current_user.id, receiver_id: @student_room.room.user.id), method: 'post' do %>
@@ -39,9 +39,9 @@
                     <!--</tr>      -->
                 </table>
                 
-                <% if @student_room.status == "enrolled" && current_user.utype =="student"%>
+                <% if @student_room.status == "reserved" && current_user.utype =="student"%>
                     <%= link_to "Drop room", @student_room, method: :delete, data: {confirm: "Are you sure?"} %>
-                <% elsif @student_room.status == "enrolled" && ( current_user.utype =="admin" || current_user.utype =="instructor")    %>
+                <% elsif @student_room.status == "reserved" && ( current_user.utype =="admin" || current_user.utype =="instructor")    %>
                     <%= link_to "Drop student ", @student_room, method: :delete, data: {confirm: "Are you sure?"} %>
                     <!--<%= link_to " Post grade", edit_student_room_path  %>-->
                 <% end %>

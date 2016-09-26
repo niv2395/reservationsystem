@@ -23,10 +23,12 @@ end
 
 # Create instructors
 
-# Create 30 more instructors
+# Create 30 size
 30.times do |n|
-	name = Faker::Name.name
-	email = "ins#{n+1}@sp.com"
+
+	temp = ['Small','Medium','Large'].sample(1) #Faker::Name.name
+  name=temp[0]
+  email = "ins#{n+1}@sp.com"
 	address = Faker::Address.secondary_address + ", " + Faker::Address.street_address + ", " + Faker::Address.city
 	number = Faker::PhoneNumber.phone_number
 	User.create!(name: name, 
@@ -57,6 +59,7 @@ end
 # Add 15 DH rooms
 15.times do |n|
 	title = "DH room#{n+1}"
+  temp=["Empty","Reserved"].sample(1)
 	description = "DH Library"
 	start = Date.new(2015, 8, 15)
 	end_ = Date.new(2015, 12, 15)
@@ -66,7 +69,7 @@ end
 		start_date: start,
 		end_date: end_,
 		user_id: user_id,
-		status: "Inactive")
+		status: temp[0])
 end
 
 # Add random 'past' rooms for 200 students
@@ -79,7 +82,7 @@ grades = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F"]
 		StudentRoom.create!(user_id: student_id,
 			room_id: past_rooms[i],
 			grade: grades.sample,
-			status: "completed")
+			status: "Completed")
 	end
 end
 
@@ -87,6 +90,7 @@ end
 # Create 15 Hunt rooms
 15.times do |n|
 	title = "Hunt room#{n+1}"
+  temp=["Empty","Reserved"].sample(1)
 	description = "Hunt Library"
 	start = Date.today
 	end_ = Date.today
@@ -96,7 +100,7 @@ end
 		start_date: start,
 		end_date: end_,
 		user_id: user_id,
-		status: "Active")
+		status: temp[0])
 end
 
 # Create students enrolled in current rooms
@@ -108,7 +112,7 @@ end
 		StudentRoom.create!(user_id: student_id,
 			room_id: current_rooms[i],
 			grade: "F",
-			status: "enrolled")
+			status: "Reserved")
 	end
 end
 

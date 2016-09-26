@@ -6,8 +6,8 @@
 </div>
 <div>
 <%= link_to "All", users_path%> | 
-<%= link_to "Admins", users_path(subset:"admins") %> | 
-<%= link_to "Instructors", users_path(subset:"instructors") %> | 
+<%= link_to "Admins", users_path(subset:"admins") %> |
+  <!--<%= link_to "Instructors", users_path(subset:"instructors") %>-->
 <%= link_to "Students", users_path(subset:"students") %>
 </div>
 <h3>Viewing all users </h3>
@@ -23,10 +23,15 @@
 		<tbody>
 			<% @users.each do |user| %>
 				<tr>
+          <% if user.utype!='instructor'%>
 					<td><%= link_to "#{user.name}", user%></td>
+
+
 					<td><%= user.email %></td>
 					<td><%= user.utype %></td>
+
 					<td>
+
 						<% if current_user.utype == "admin" && user.utype != "admin" %>
 							<% history_url = "#" %>
 							<%if user.utype == "student" %> 
@@ -36,6 +41,7 @@
 							<% end %>
 							<%= link_to 'View History', history_url%> 
 						<% end %>
+          <% end %>
 					</td>
 				</tr>
 			<% end %>

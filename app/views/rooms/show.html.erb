@@ -14,8 +14,9 @@
                             Delete <i class="glyphicon glyphicon-remove"></i>
                         <% end %>
                     <% elsif(current_user.utype=="student" && @room.status != "Inactive") %>
+                      <br>
                         <%= link_to :controller=>:rooms, :action=>:enroll, :id=>@room.id do %>
-                            Enroll me <i class="glyphicon glyphicon-list-alt"></i>
+                            <h2>RESERVE NOW!!!!! <i class="glyphicon glyphicon-list-alt"></i></h2>
                         <% end %>
                     <% end %>
                  
@@ -25,19 +26,19 @@
                             <td><%= @room.title %></td>
                         </tr>
                         <tr>
-                            <td>Description:</td>
+                            <td>Location:</td>
                             <td><%= @room.description %></td>
                         </tr>
-                        <tr>
-                            <td>Start date:</td>
-                            <td><%= @room.start_date  %></td>
-                        </tr>
+                        <!--<tr>-->
+                            <!--<td>Start date:</td>-->
+                            <!--<td><%= @room.start_date  %></td>-->
+                        <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>End date:</td>-->
+                            <!--<td><%= @room.end_date %></td>-->
+                        <!--</tr>-->
                             <tr>
-                            <td>End date:</td>
-                            <td><%= @room.end_date %></td>
-                        </tr>
-                            <tr>
-                            <td>Instructor:</td>
+                            <td>Size:</td>
                             <td>
                                 <%= @room.user.name %> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <% if ((current_user.id!=@room.user.id) && (current_user.utype=="student")) %>
@@ -53,7 +54,7 @@
                         </tr>      
                     </table>
                     <% if ( current_user.utype =="admin" ||  current_user.utype =="instructor" )%>
-                        <%=  link_to "Enrolled students", controller: "student_rooms", action: "enrolledshow", id:@room, class:'form-control' %> | <%= link_to "Enrollment requests" , controller: "student_rooms", action: "pendingshow", id:@room, class:'form-control' %>
+                        <%=  link_to "Reserved students", controller: "student_rooms", action: "enrolledshow", id:@room, class:'form-control' %> | <%= link_to "Reservation requests" , controller: "student_rooms", action: "pendingshow", id:@room, class:'form-control' %>
                     <% end %>
                 </div>
             </div>
@@ -61,24 +62,24 @@
              
 
             <br/>
-            <h3>Announcements</h3>
-            <% @room_announcements.each do |announcement| %>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+            <!--<h3>Announcements</h3>-->
+            <!--<% @room_announcements.each do |announcement| %>-->
+                <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading">-->
 
-                        <div style="text-align: left">
-                            <%= announcement.title %>
-                            <span style="float:right">
-                            <i>Posted at: <%= announcement.created_at.strftime("%H:%M %m-%d-%y ") %></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <%= announcement.content %>
-                    </div>
-                </div>
-                <br/>
-            <% end %>
+                        <!--<div style="text-align: left">-->
+                            <!--<%= announcement.title %>-->
+                            <!--<span style="float:right">-->
+                            <!--<i>Posted at: <%= announcement.created_at.strftime("%H:%M %m-%d-%y ") %></i>-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="panel-body">-->
+                        <!--<%= announcement.content %>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<br/>-->
+            <!--<% end %>-->
         </div>
     </div>
   

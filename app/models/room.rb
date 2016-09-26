@@ -3,11 +3,11 @@ class Room < ActiveRecord::Base
   has_many :announcement
   validates :title, presence: true, length: {maximum: 100}
   validates :description, presence: true, length: {maximum: 1000}
-  validates :start_date, presence: true 
-  validates :end_date, presence: true 
+  # validates :start_date, presence: true
+  # validates :end_date, presence: true
   validates :user, presence:true
-  validates :status, presence:true, inclusion: {in: %w(Inactive Active), message: "%{value} is not a valid status"}
-  validate :validate_start_before_end
+  validates :status, presence:true, inclusion: {in: %w(Empty Reserved), message: "%{value} is not a valid status in ROOM"}
+  # validate :validate_start_before_end
 
   def validate_start_before_end 
     if (start_date != nil && end_date != nil)

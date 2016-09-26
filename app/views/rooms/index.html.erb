@@ -13,7 +13,7 @@
             <option>ID</option>
             <option>Title</option>
             <option>Description</option>
-            <option>Instructor</option>
+            <option>Size</option>
             <option>Status</option>
         </select>
     </div>
@@ -33,10 +33,10 @@
     <thead>
         <th>Room ID</th>
         <th>Room Title</th>
-        <th>Description</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Intructor</th>
+        <th>Location</th>
+        <!--<th>Start Time</th>-->
+        <!--<th>End Time</th>-->
+        <th>Size</th>
         <th>Status</th>
         <th></th>
     </thead>
@@ -46,8 +46,8 @@
             <td><%= room.id%></td>
             <td><%= link_to room.title, room %></td>
             <td><%= room.description %></td>
-            <td><%= room.start_date %></td>
-            <td><%= room.end_date %></td>
+            <!--<td><%= room.start_date %></td>-->
+            <!--<td><%= room.end_date %></td>-->
             <td><%= room.user.name%></td>
             <td><%= room.status%></td>
             <!-- <td><%= link_to 'Show', room %></td> -->

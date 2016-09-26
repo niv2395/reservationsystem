@@ -26,34 +26,44 @@
 	        	<%= f.label :title, "Title" %>
 	            <%= f.text_field :title, class:'form-control' %>
 
-	            <%= f.label :description, "Description" %>
-	            <%= f.text_area :description, class:'form-control' %>
 
-	            <%= f.label :start_date, "Start date" %>
-	            <%= f.date_select :start_date, { :order => [:year, :month, :day], :prompt => { year: 'Select year', day:'Select day', month:'Select month' }}, {class: "form-control"}  %>
+            <%= f.label :description, "Location" %>
+            <%= f.select(:description, {}, {}, {class:'form-control'}) do %>
+                <%=content_tag(:option, "DH Library", value: "DH Library") %>
+                <%=content_tag(:option, "Hunt Library", value: "Hunt Library") %>
+            <% end %>
 
-	            <%= f.label :end_date, "End date" %>
-	            <%= f.date_select :end_date, { :order => [:year, :month, :day], :prompt => { year: 'Select year', day:'Select day', month:'Select month' }}, {class: "form-control"}  %>
+	            <!--<%= f.label :start_date, "Start date" %>-->
+	            <!--<%= f.date_select :start_date, { :order => [:year, :month, :day], :prompt => { year: 'Select year', day:'Select day', month:'Select month' }}, {class: "form-control"}  %>-->
+
+	            <!--<%= f.label :end_date, "End date" %>-->
+	            <!--<%= f.date_select :end_date, { :order => [:year, :month, :day], :prompt => { year: 'Select year', day:'Select day', month:'Select month' }}, {class: "form-control"}  %>-->
 	            
-				<%= f.label :user_id, "Instructor" %><br> 
-	            <% users_array = User.all.map{|user| [user.name, user.id] if user.utype =="instructor"} %>            
-	            
+				<%= f.label :user_id, "Size" %>
+            <br>
+	            <% users_array = User.all.map{|user| [user.name, user.id] if user.utype =="instructor"} %>
+
 	            <%= f.select(:user_id, {}, {}, {class:'form-control'}) do %>
 	                <% users_array.each do |user| %>
 	                    <% if user != nil %>
 	                        <%= content_tag(:option, user.first, value: user.last) %>
 	                    <% end %>
 	                <% end %>
-	            <% end %>
 
-	            <%= f.select(:status, {}, {}, {class:'form-control'}) do %>
-	                <%=content_tag(:option, "Inactive", value: "Inactive") %>
-	                <%=content_tag(:option, "Active", value: "Active") %>
+
+      <% end %>
+
+            <%= f.label :status, "Status" %><br>
+
+            <%= f.select(:status, {}, {}, {class:'form-control'}) do %>
+	                <%=content_tag(:option, "Empty", value: "Empty") %>
+	                <%=content_tag(:option, "Reserved", value: "Reserved") %>
 	            <% end %> 
 	             
 	            <%= f.submit "Edit room", class: "btn btn-primary" %>
 
 	        <% end %>
+
 	    </div>
 	</div>
 

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%=  link_to "SCHOOL PORTAL", root_url, class:'navbar-brand' %>
+          <%=  link_to "Reservation System", root_url, class:'navbar-brand' %>
         </div>
     	<nav>           
             <ul class="nav navbar-nav navbar-right">
@@ -22,14 +22,12 @@
                             <ul class="dropdown-menu">
                                 <li><%=  link_to "View users", users_path %></li>
                                 <li><%=  link_to "View rooms", roomsall_path%></li>
-                                <li><%=  link_to "View announcements", announcements_path %></li>
-                                <li role="separator" class="divider"></li>
-                                <li><%=  link_to "Post an announcement", new_announcement_path %></li>
+                                <!--<li><%=  link_to "View announcements", announcements_path %></li>-->
+                                <!--<li><%=  link_to "Post an announcement", new_announcement_path %></li>-->
                                 <li role="separator" class="divider"></li>
                                 <li><%=  link_to "Add a room", roomcreate_path %></li>
                                 <li role="separator" class="divider"></li>
                                 <li><%=  link_to "Add an admin", adminsignup_path %></li>
-                                <li><%=  link_to "Add an instructor", instructorsignup_path %></li>
                                 <li><%=  link_to "Add a student", signup_path %></li>
                             </ul>
                         </li>
@@ -41,7 +39,6 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><%=  link_to "My rooms", roomhistorydisplayinstructor_path%></li>
-                                <li><%=  link_to "New announcement", new_announcement_path%></li>
                             </ul>
                         </li>
                     <% elsif current_user.utype == "student" %>

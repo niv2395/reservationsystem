@@ -16,8 +16,8 @@ class RoomsController < ApplicationController
                 @rooms = Room.where("title LIKE ?","%#{params[:search]}%")
             elsif params[:searchby] == 'Description'
                 @rooms = Room.where("description LIKE ?","%#{params[:search]}%")
-            elsif params[:searchby] == 'Instructor'
-                @rooms = Room.joins(:user).merge(User.where(" name like ?","%#{params[:search]}%"))
+            # elsif params[:searchby] == 'Instructor'
+            #     @rooms = Room.joins(:user).merge(User.where(" name like ?","%#{params[:search]}%"))
             elsif params[:searchby] == 'Status'
                 @rooms = Room.where("lower(status) = ?","#{params[:search].downcase}")
             end 
@@ -120,7 +120,7 @@ class RoomsController < ApplicationController
             end 
         else
             redirect_to rooms_url
-            flash[:success] ='Student already enrolled for room.'
+            flash[:success] ='Student already reserved the room.'
         end  
     end
 
