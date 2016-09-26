@@ -1,60 +1,38 @@
-== README == 
+== README ==
 
-Follow the below instructions to log in to the system (using the preconfigured accounts) and find the relevant actions. For more information on finding certain pages, visit the site's about page (in the footer).
+Follow the instructions below to log in to the system (using the preconfigured accounts) and find the relevant actions. For more information on finding certain pages, visit the site's "About" page (at the end of the page).
 
 == SUPER ADMIN ==
 
 username: admin@sp.com
 
-
 password: password
 
+== ADMINS ==
 
-== ADMINS == <Might not hold good if deleted>
-
-username: admin_@sp.com 		[replace _ with a number in the range 1-5]
-
+username: admin_@sp.com [replace _ with a number in the range 1-5]
 
 Example: admin1@sp.com
 
 password: password
 
 
+== STUDENTS ==
 
-== INSTRUCTORS == <Might not hold good if deleted>
-
-username: ins_@sp.com 		[replace _ with a number in the range 1-30]
-
-
-Example: ins2@sp.com
-
-password: password
-
-
-
-== STUDENTS == <Might not hold good if deleted>
-
-username: stu_@sp.com 		[replace _ with a number in the range 1-300]
-
+username: stu_@sp.com [replace _ with a number in the range 1-300]
 
 Example: stu3@sp.com
 
 password: password
 
-
-
 == ACTIONS ==
 
-All the permitted actions are listed in the top navigation bar
-Some of the actions are not listed in that, but can be performed upon visiting one of those listed pages
+The permitted actions are listed in the top navigation bar. Some of the other actions that are not specified, are present in the corresponding pages!
 
+Note: Incase of any doubt/discrepancy, do contact one of us!
 
+Nivedita Natarajan nnatara2@ncsu.edu
 
-NOTE :: Kindly contact us :  in case of any difficulty , before submitting a blank review , incase !
+Yuxin Cheng ycheng15@ncsu.edu
 
-
-Rakesh Kavodkar : rgopalk@ncsu.edu
-
-Sneha Shah 		: smshah4@ncsu.edu
-
-Tanay Pande 	: tapnde@ncsu.edu
+Sandeep Reddy Katypally skatypa@ncsu.edu
