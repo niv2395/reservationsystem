@@ -4,7 +4,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
-    assert_select "title", "Sign Up | School Portal"
+    assert_select "title", "Sign Up | Reservation System"
   end
 
 end

@@ -81,7 +81,7 @@ class UsersController < ApplicationController
 		@user = User.new(check_user_params)
 		if @user.save
 			unless logged_in?
-				flash[:success] = "Welcome to the School Portal!"
+				flash[:success] = "Welcome to the Reservation System!"
 				log_in @user
 				redirect_to @user
 			else 

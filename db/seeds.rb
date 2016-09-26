@@ -40,7 +40,7 @@ end
 		ph_number: number)
 end
 
-# Create 300 more students
+# Create 300 students
 300.times do |n|
 	name = Faker::Name.name
 	email = "stu#{n+1}@sp.com"
